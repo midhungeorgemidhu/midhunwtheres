@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Theres & Midhun — The Wedding Invitation</title>
+  <meta name="description" content="The Wedding Invitation of Theres & Midhun. Join us on Saturday, November 21, 2026 at 10:00 AM at St. Mary's Forane Church, Alakode, Kannur.">
+  <meta name="theme-color" content="#0a1118">
+
+  <!-- OpenGraph / Social Previews -->
+  <meta property="og:title" content="Theres & Midhun — The Wedding Invitation">
+  <meta property="og:description" content="November 21, 2026 • St. Mary's Forane Church, Alakode, Kannur. Join us as we begin our forever.">
+  <meta property="og:image" content="assets/images/hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Floating Falling Petals & Golden Sparkles Canvas -->
+  <canvas id="petalCanvas"></canvas>
+
+  <!-- =========================================================================
+       1. ENVELOPE WAX SEAL INTRO OVERLAY
+       ========================================================================= -->
+  <div class="envelope-overlay" id="envelopeOverlay">
+    <div class="envelope-wrapper">
+      <div class="envelope-card">
+        <div class="envelope-pattern"></div>
+        <div class="envelope-crest">T & M</div>
+        <div class="envelope-subtitle">The Wedding Invitation</div>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 340px; margin-bottom: 0.5rem;">
+          Theres & Midhun are getting married! Join us as we celebrate our holy union in love and grace.
+        </p>
+
+        <!-- Interactive Wax Seal Button -->
+        <button class="wax-seal-btn" id="waxSealBtn" title="Click to Break the Seal & Open Invitation">
+          <div class="wax-seal-inner">T&M</div>
+        </button>
+        <span class="open-seal-hint">✨ Click Seal to Open ✨</span>
+      </div>
+    </div>
+    <button id="skipIntroBtn" style="margin-top: 1.5rem; background: transparent; color: var(--text-muted); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: underline;">
+      Skip Opening Animation
+    </button>
+  </div>
+
+  <!-- =========================================================================
+       2. HERO SECTION
+       ========================================================================= -->
+  <header class="hero-section" id="hero">
+    <div class="hero-backdrop">
+      <img src="assets/images/hero.jpg" alt="Theres and Midhun Wedding Background">
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-monogram-crest floating-element">
+        <span>T&M</span>
+      </div>
+
+      <p class="hero-pretitle">The Wedding Invitation</p>
+      
+      <h1 class="hero-couple-names">
+        Theres <span class="ampersand">&</span> Midhun
+      </h1>
+
+      <p style="font-family: var(--font-script); color: var(--gold-light); font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1.25rem;">
+        Are getting married
+      </p>
+
+      <div class="hero-date-badge">
+        <span>November 21, 2026</span>
+        <span>•</span>
+        <span>Alakode, Kannur</span>
+      </div>
+
+      <!-- Live Countdown -->
+      <div class="countdown-container">
+        <div class="countdown-box">
+          <span class="countdown-value" id="cdDays">00</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="cdHours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="cdMins">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-value" id="cdSecs">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <p class="countdown-header-note" style="color: var(--gold-light); font-size: 0.95rem; letter-spacing: 0.05em; margin-bottom: 2rem;">
+        The countdown has begun — join us as we begin our forever.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#schedule" class="btn btn-gold">
+          <span>📅</span> View Schedule
+        </a>
+        <a href="#rsvp" class="btn btn-glass">
+          <span>💌</span> Joyfully RSVP
+        </a>
+        <button class="btn btn-outline-gold" id="btnGoogleCalendar">
+          <span>➕</span> Add to Calendar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       3. THE WEDDING CEREMONY HIGHLIGHT
+       ========================================================================= -->
+  <section class="section" style="padding: 3.5rem 0; background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);">
+    <div class="container container-narrow">
+      <div class="glass-card animate-fade-up" style="border: 2px solid var(--gold-primary); text-align: center; padding: 2.5rem 2rem;">
+        <span class="section-subtitle" style="font-size: 0.9rem;">The Holy Sacrament</span>
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem); color: var(--gold-light); margin: 0.5rem 0 1rem 0;">
+          The Wedding Ceremony
+        </h2>
+        <div class="ornament-divider"><span>❦</span></div>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.5rem; margin: 1.5rem 0;">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(212, 175, 55, 0.12); padding: 0.6rem 1.4rem; border-radius: var(--radius-full); border: 1px solid var(--border-gold);">
+            <span style="font-size: 1.3rem;">⏰</span>
+            <strong style="color: var(--gold-light); font-size: 1.1rem;">10:00 AM</strong>
+          </div>
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(212, 175, 55, 0.12); padding: 0.6rem 1.4rem; border-radius: var(--radius-full); border: 1px solid var(--border-gold);">
+            <span style="font-size: 1.3rem;">⛪</span>
+            <strong style="color: var(--gold-light); font-size: 1.1rem;">St. Mary's Forane Church, Alakode</strong>
+          </div>
+        </div>
+
+        <p style="font-size: 1.05rem; max-width: 600px; margin: 0 auto 1.5rem auto;">
+          We seek your prayers and blessed presence as we exchange holy vows before God, family, and loved ones.
+        </p>
+
+        <a href="#venue" class="btn btn-gold">
+          <span>📍</span> View Location on Map
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. OUR JOURNEY (FIVE MILESTONES)
+       ========================================================================= -->
+  <section class="section" id="story">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-subtitle">The Road to Forever</span>
+        <h2 class="section-title">Our Journey</h2>
+        <div class="ornament-divider"><span>❦</span></div>
+        <p class="section-description">
+          Five milestones, one beautiful road to forever.
+        </p>
+      </div>
+
+      <div class="story-timeline">
+        <!-- Milestone 01 -->
+        <div class="timeline-item animate-fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span class="timeline-year" style="font-size: 1.1rem; color: var(--gold-light); font-family: var(--font-heading);">01</span>
+                <span class="timeline-year">21 Mar 2026</span>
+              </div>
+              <h3 class="timeline-title">Fixation</h3>
+              <p>
+                Families formalize alliance. A blessed union brought together with the warm blessings and joy of both families.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 02 -->
+        <div class="timeline-item animate-fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span class="timeline-year" style="font-size: 1.1rem; color: var(--gold-light); font-family: var(--font-heading);">02</span>
+                <span class="timeline-year">16 Nov 2026</span>
+              </div>
+              <h3 class="timeline-title">Engagement</h3>
+              <p>
+                A beautiful "Yes". Exchanging betrothal rings, sharing heartfelt promises, and taking the cherished step toward our holy matrimony.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 03 -->
+        <div class="timeline-item animate-fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card" style="border-color: var(--border-gold);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span class="timeline-year" style="font-size: 1.1rem; color: var(--gold-light); font-family: var(--font-heading);">03</span>
+                <span class="timeline-year">21 Nov 2026 • 10 AM</span>
+              </div>
+              <h3 class="timeline-title">Marriage Ceremony</h3>
+              <p>
+                Becoming one. Speaking our eternal vows at <strong>St. Mary's Forane Church, Alakode</strong> and being united in holy matrimony.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Milestone 04 -->
+        <div class="timeline-item animate-fade-up">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-card">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span class="timeline-year" style="font-size: 1.1rem; color: var(--gold-light); font-family: var(--font-heading);">04</span>
+                <span class="timeline-year">21 Nov 2026</span>
+              </div>
+              <h3 class="timeline-title">Grand Reception</h3>
+              <p>
+                Grand celebration. Joyful feast, family blessings, musical celebrations, and creating memories of a lifetime with all of you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. WITH LOVE AND GRATITUDE — FAMILY DETAILS
+       ========================================================================= -->
+  <section class="section" id="family" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-subtitle">With Love and Gratitude</span>
+        <h2 class="section-title">Family Details</h2>
+        <div class="ornament-divider"><span>❦</span></div>
+        <p class="section-description">
+          Honoring our cherished families who nurtured and guided us with boundless love and devotion.
+        </p>
+      </div>
+
+      <div class="family-grid">
+        <!-- Groom's Family Card -->
+        <div class="family-card animate-fade-up">
+          <div class="family-card-header">
+            <span class="family-tag-badge">Groom's Family</span>
+            <h3 class="family-person-name">Midhun</h3>
+          </div>
+
+          <div class="family-list">
+            <!-- Parents -->
+            <div class="family-member-row">
+              <div class="family-icon-wrap">👑</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mr. George Devasia</div>
+                <div class="family-member-role">Father</div>
+              </div>
+            </div>
+
+            <div class="family-member-row">
+              <div class="family-icon-wrap">🌸</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mrs. Shanty George</div>
+                <div class="family-member-role">Mother</div>
+              </div>
+            </div>
+
+            <!-- Siblings & In-Laws -->
+            <div class="family-member-row">
+              <div class="family-icon-wrap">✨</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mr. Jithin & Mrs. Mariya</div>
+                <div class="family-member-role">Brother & Sister-in-law</div>
+              </div>
+            </div>
+
+            <div class="family-member-row">
+              <div class="family-icon-wrap">🌟</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mr. Athul George</div>
+                <div class="family-member-role">Brother</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bride's Family Card -->
+        <div class="family-card animate-fade-up">
+          <div class="family-card-header">
+            <span class="family-tag-badge">Bride's Family</span>
+            <h3 class="family-person-name">Theres</h3>
+          </div>
+
+          <div class="family-list">
+            <!-- Parents -->
+            <div class="family-member-row">
+              <div class="family-icon-wrap">👑</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mr. Mathew Philipose</div>
+                <div class="family-member-role">Father</div>
+              </div>
+            </div>
+
+            <div class="family-member-row">
+              <div class="family-icon-wrap">🌸</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mrs. Salimma Mathew</div>
+                <div class="family-member-role">Mother</div>
+              </div>
+            </div>
+
+            <!-- Sisters & Brothers-in-law -->
+            <div class="family-member-row">
+              <div class="family-icon-wrap">✨</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mrs. Mintu & Mr. Jobin</div>
+                <div class="family-member-role">Sister & Brother-in-law</div>
+                <div class="family-children-note">Children: Joanna, Jonath, Jonita</div>
+              </div>
+            </div>
+
+            <div class="family-member-row">
+              <div class="family-icon-wrap">✨</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mrs. Shintu & Mr. Don Bosco</div>
+                <div class="family-member-role">Sister & Brother-in-law</div>
+                <div class="family-children-note">Children: Isaiah, Olivia</div>
+              </div>
+            </div>
+
+            <!-- Brother & Sister-in-law -->
+            <div class="family-member-row">
+              <div class="family-icon-wrap">🌟</div>
+              <div class="family-member-info">
+                <div class="family-member-name">Mr. Tomin & Mrs. Anns mol</div>
+                <div class="family-member-role">Brother & Sister-in-law</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. SCHEDULE OF EVENTS & ITINERARY
+       ========================================================================= -->
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-subtitle">Celebration Itinerary</span>
+        <h2 class="section-title">Schedule of Events</h2>
+        <div class="ornament-divider"><span>❦</span></div>
+        <p class="section-description">
+          Please join us for each milestone of our wedding celebrations.
+        </p>
+      </div>
+
+      <div class="events-grid">
+        <!-- Event 1 -->
+        <div class="event-card animate-fade-up">
+          <div>
+            <div class="event-icon">📜</div>
+            <span class="event-time-badge">21 March 2026</span>
+            <h3 class="event-title">Alliance Fixation</h3>
+            <div class="event-location">
+              <span>📍</span> <span>Family Residence</span>
+            </div>
+            <p class="event-details">
+              Formalizing the alliance between both families with joy, prayers, and heartfelt celebrations.
+            </p>
+          </div>
+          <div class="event-footer">
+            <span class="event-attire-badge">Traditional / Formal</span>
+            <span style="font-size: 0.85rem; color: var(--gold-light);">Completed ✨</span>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="event-card animate-fade-up">
+          <div>
+            <div class="event-icon">💍</div>
+            <span class="event-time-badge">16 November 2026</span>
+            <h3 class="event-title">The Holy Engagement</h3>
+            <div class="event-location">
+              <span>📍</span> <span>Parish Hall, Alakode</span>
+            </div>
+            <p class="event-details">
+              Blessing of the rings and betrothal ceremony surrounded by our closest family and friends.
+            </p>
+          </div>
+          <div class="event-footer">
+            <span class="event-attire-badge">Attire: Traditional Festive</span>
+            <a href="#family" style="font-size: 0.85rem; font-weight: 500;">Family Details →</a>
+          </div>
+        </div>
+
+        <!-- Event 3: Main Ceremony -->
+        <div class="event-card animate-fade-up" style="border-color: var(--border-gold); background: rgba(212, 175, 55, 0.05);">
+          <div>
+            <div class="event-icon">⛪</div>
+            <span class="event-time-badge" style="background: var(--gold-gradient); color: #0c1819; font-weight: 600;">21 Nov 2026 • 10:00 AM</span>
+            <h3 class="event-title">The Wedding Ceremony</h3>
+            <div class="event-location">
+              <span>📍</span> <span>St. Mary's Forane Church, Alakode</span>
+            </div>
+            <p class="event-details">
+              Holy Matrimony service, exchange of vows, crowning, and wedding blessings at St. Mary's Forane Church.
+            </p>
+          </div>
+          <div class="event-footer">
+            <span class="event-attire-badge">Attire: Formal / Traditional</span>
+            <a href="#venue" style="font-size: 0.85rem; font-weight: 500;">Church Map →</a>
+          </div>
+        </div>
+
+        <!-- Event 4: Grand Reception -->
+        <div class="event-card animate-fade-up">
+          <div>
+            <div class="event-icon">🥂</div>
+            <span class="event-time-badge">21 Nov 2026 • Afternoon</span>
+            <h3 class="event-title">Grand Wedding Reception</h3>
+            <div class="event-location">
+              <span>📍</span> <span>Auditorium, Alakode</span>
+            </div>
+            <p class="event-details">
+              Sumptuous wedding feast, felicitations, musical celebration, cake cutting, and joyous memories.
+            </p>
+          </div>
+          <div class="event-footer">
+            <span class="event-attire-badge">Attire: Grand Festive</span>
+            <a href="#rsvp" style="font-size: 0.85rem; font-weight: 500;">Confirm Attendance →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. WEDDING LOCATION & MAP
+       ========================================================================= -->
+  <section class="section" id="venue" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-subtitle">Venue & Directions</span>
+        <h2 class="section-title">Wedding Location</h2>
+        <div class="ornament-divider"><span>❦</span></div>
+        <p class="section-description">
+          <strong>St. Mary's Forane Church, Alakode</strong> — Kannur District, Kerala.
+        </p>
+      </div>
+
+      <div class="glass-card animate-fade-up" style="max-width: 900px; margin: 0 auto; padding: 2rem;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <div>
+            <h3 style="font-size: 1.6rem; color: var(--gold-light); margin-bottom: 0.25rem;">
+              St. Mary's Forane Church
+            </h3>
+            <p style="font-size: 0.95rem; color: var(--text-muted);">
+              Alakode, Kannur District, Kerala - 670571
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="https://maps.app.goo.gl/nqpRPhmrmrRnM6Ty9" target="_blank" rel="noopener" class="btn btn-gold">
+              <span>📍</span> Open Google Maps
+            </a>
+            <button class="btn btn-outline-gold btn-copy" data-copy="St. Mary's Forane Church, Alakode, Kannur, Kerala">
+              📋 Copy Church Address
+            </button>
+          </div>
+        </div>
+
+        <!-- Google Maps Embed -->
+        <div class="map-iframe-wrapper">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.9236274816953!2d75.46616279999999!3d12.1855998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba444f62d3232b3%3A0x7e5dd19498de1e1f!2sSt.%20Mary's%20Forane%20Church%2C%20Alakode!5e0!3m2!1sen!2sin!4v1786981190670!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. PHOTO GALLERY
+       ========================================================================= -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-subtitle">Moments Frozen in Time</span>
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="ornament-divider"><span>❦</span></div>
+        <p class="section-description">
+          Cherished memories and moments leading to our special day.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="gallery-filter-tabs animate-fade-up">
+        <button class="gallery-tab active" data-filter="all">All Photos</button>
+        <button class="gallery-tab" data-filter="engagement">Engagement</button>
+        <button class="gallery-tab" data-filter="travels">Travels</button>
+        <button class="gallery-tab" data-filter="ceremony">Venue & Details</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Rendered dynamically by js/gallery.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <button class="lightbox-btn-close" id="lightboxClose" title="Close (Esc)">✕</button>
+    <button class="lightbox-nav-btn lightbox-btn-prev" id="lightboxPrev" title="Previous (Left Arrow)">‹</button>
+    <button class="lightbox-nav-btn lightbox-btn-next" id="lightboxNext" title="Next (Right Arrow)">›</button>
+
+    <div class="lightbox-container">
+      <div class="lightbox-image-wrap">
+        <img id="lightboxImg" src="" alt="Wedding gallery preview">
+      </div>
+      <div class="lightbox-caption-bar">
+        <h3 id="lightboxTitle" style="font-size: 1.3rem;"></h3>
+        <p id="lightboxCaption" style="font-size: 0.9rem; margin-top: 0.25rem;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       9. INTERACTIVE RSVP & DIGITAL GUEST PASS
+       ========================================================================= -->
+  <section class="section" id="rsvp" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-subtitle">Kindly Confirm Attendance</span>
+        <h2 class="section-title">RSVP to the Celebration</h2>
+        <div class="ornament-divider"><span>❦</span></div>
+        <p class="section-description">
+          We would be honored by your presence. Already <strong><span id="confirmedGuestCount">142</span> guests</strong> confirmed!
+        </p>
+      </div>
+
+      <div class="rsvp-wrapper animate-fade-up">
+        <form class="rsvp-form" id="rsvpForm">
+          <!-- Full Name -->
+          <div class="form-group">
+            <label class="form-label" for="rsvpName">Your Full Name(s) *</label>
+            <input type="text" id="rsvpName" class="form-input" placeholder="e.g. Mr. & Mrs. Joseph Kurian" required>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label class="form-label" for="rsvpEmail">Phone / Email Address (for Digital Pass) *</label>
+            <input type="text" id="rsvpEmail" class="form-input" placeholder="e.g. phone or email" required>
+          </div>
+
+          <!-- Attendance Options -->
+          <div class="form-group">
+            <label class="form-label">Will you be attending? *</label>
+            <div class="radio-cards-grid">
+              <div class="radio-card selected" data-status="attending">
+                <input type="radio" name="attending" id="attendingYes" value="yes" checked>
+                <label for="attendingYes" style="cursor: pointer; font-weight: 500;">
+                  ✨ Joyfully Accepts
+                </label>
+              </div>
+              <div class="radio-card" data-status="declining">
+                <input type="radio" name="attending" id="attendingNo" value="no">
+                <label for="attendingNo" style="cursor: pointer; font-weight: 500;">
+                  💌 Regretfully Declines
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guest Count -->
+          <div class="form-group">
+            <label class="form-label" for="rsvpGuests">Number of Guests in Party</label>
+            <select id="rsvpGuests" class="form-select">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5+ Guests</option>
+            </select>
+          </div>
+
+          <!-- Meal / Feast Preference -->
+          <div class="form-group" id="mealSectionGroup">
+            <label class="form-label">Select Feast Preference</label>
+            <div class="meal-options-grid">
+              <div class="meal-card selected">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span class="meal-name">Traditional Non-Veg Feast</span>
+                  <input type="radio" name="meal" value="Traditional Non-Veg Feast" checked style="accent-color: var(--gold-primary);">
+                </div>
+                <p class="meal-desc">Kerala Christian wedding delicacies & celebratory feast.</p>
+              </div>
+
+              <div class="meal-card">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span class="meal-name">Traditional Vegetarian Sadya</span>
+                  <input type="radio" name="meal" value="Traditional Vegetarian Sadya" style="accent-color: var(--gold-primary);">
+                </div>
+                <p class="meal-desc">Authentic Kerala vegetarian feast with payasam.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dietary Restrictions -->
+          <div class="form-group">
+            <label class="form-label" for="rsvpDietary">Special Notes / Wishes</label>
+            <input type="text" id="rsvpDietary" class="form-input" placeholder="e.g. Any special dietary requests or arrival notes">
+          </div>
+
+          <!-- Song / Music Request -->
+          <div class="form-group">
+            <label class="form-label" for="rsvpSong">Song Request for the Reception Band / DJ 🎵</label>
+            <input type="text" id="rsvpSong" class="form-input" placeholder="e.g. Favorite celebration song">
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width: 100%; padding: 1.1rem; font-size: 1rem; margin-top: 1rem;">
+            <span>✨</span> Confirm RSVP & Generate Digital Pass
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP Digital Invitation Pass Modal -->
+  <div class="digital-pass-modal" id="digitalPassModal">
+    <div class="pass-card">
+      <div class="pass-crest">T & M</div>
+      <div class="pass-title">Official Wedding Guest Pass</div>
+
+      <h3 class="pass-guest-name" id="passGuestName">Guest Name</h3>
+      <p style="font-size: 0.85rem; color: var(--gold-light);">Theres & Midhun Wedding • Alakode</p>
+
+      <div class="pass-details-row">
+        <div class="pass-detail-item">
+          <span class="pass-detail-label">Pass Code</span>
+          <span class="pass-detail-val" id="passCodeVal">TM-8849</span>
+        </div>
+        <div class="pass-detail-item">
+          <span class="pass-detail-label">Party Size</span>
+          <span class="pass-detail-val" id="passGuestsVal">2 Guests</span>
+        </div>
+        <div class="pass-detail-item">
+          <span class="pass-detail-label">Ceremony</span>
+          <span class="pass-detail-val" id="passTableVal">10:00 AM</span>
+        </div>
+      </div>
+
+      <div class="pass-qr-wrap">
+        <canvas id="passQrCanvas"></canvas>
+      </div>
+
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+        St. Mary's Forane Church, Alakode • 21 Nov 2026
+      </p>
+
+      <div style="display: flex; gap: 0.75rem; justify-content: center;">
+        <button class="btn btn-gold" id="downloadPassBtn" style="padding: 0.6rem 1.4rem; font-size: 0.8rem;">
+          <span>🖨️</span> Save / Print Pass
+        </button>
+        <button class="btn btn-glass" id="passCloseBtn" style="padding: 0.6rem 1.4rem; font-size: 0.8rem;">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       10. LIVE GUESTBOOK & WISHES WALL
+       ========================================================================= -->
+  <section class="section" id="guestbook">
+    <div class="container">
+      <div class="section-header animate-fade-up">
+        <span class="section-subtitle">Blessings & Prayers</span>
+        <h2 class="section-title">Wishes & Guestbook</h2>
+        <div class="ornament-divider"><span>❦</span></div>
+        <p class="section-description">
+          Leave your sweet blessings and prayers for Theres & Midhun as they begin their sacred journey together.
+        </p>
+      </div>
+
+      <!-- Wish Form -->
+      <div class="glass-card animate-fade-up" style="max-width: 650px; margin: 0 auto 3rem auto;">
+        <form id="wishForm" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="wishAuthor">Your Name</label>
+            <input type="text" id="wishAuthor" class="form-input" placeholder="e.g. Uncle Kurian & Family" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="wishMessage">Your Prayers & Wishes</label>
+            <textarea id="wishMessage" class="form-textarea" rows="3" placeholder="Write your heartfelt message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="align-self: flex-end;">
+            <span>💌</span> Send Blessing
+          </button>
+        </form>
+      </div>
+
+      <!-- Wishes Grid -->
+      <div class="guestbook-grid" id="guestbookGrid">
+        <!-- Rendered dynamically by js/guestbook.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       11. FOOTER
+       ========================================================================= -->
+  <footer style="padding: 4rem 1rem 6rem 1rem; text-align: center; border-top: 1px solid var(--border-subtle); position: relative; z-index: 2; background: var(--bg-primary);">
+    <div class="container">
+      <div class="hero-monogram-crest" style="margin-bottom: 1rem;">
+        <span>T&M</span>
+      </div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 0.5rem;">
+        Theres & Midhun
+      </h3>
+      <p class="script-text" style="font-size: 2.2rem; margin-bottom: 1rem;">Together Forever</p>
+      <p style="font-size: 0.9rem; color: var(--gold-light); font-weight: 500;">
+        November 21, 2026 • St. Mary's Forane Church, Alakode, Kannur
+      </p>
+
+      <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem;">
+        <button onclick="window.openHostRsvpDashboard()" style="background: transparent; color: var(--gold-primary); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;">
+          👑 Host RSVP Overview
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       12. FLOATING DOCK & AUDIO CONTROLS
+       ========================================================================= -->
+  <nav class="floating-dock" aria-label="Quick Navigation">
+    <a href="#hero" class="dock-link active">Home</a>
+    <a href="#story" class="dock-link hide-mobile">Journey</a>
+    <a href="#family" class="dock-link">Family</a>
+    <a href="#schedule" class="dock-link">Schedule</a>
+    <a href="#venue" class="dock-link hide-mobile">Church</a>
+    <a href="#rsvp" class="dock-link" style="color: var(--gold-light); font-weight: 600;">RSVP</a>
+    <a href="#guestbook" class="dock-link hide-mobile">Wishes</a>
+
+    <div class="dock-divider"></div>
+
+    <!-- Sound Toggle -->
+    <button class="dock-tool-btn" id="soundToggleBtn" title="Play Romantic Music">
+      <div class="audio-waves">
+        <span class="audio-bar"></span>
+        <span class="audio-bar"></span>
+        <span class="audio-bar"></span>
+      </div>
+    </button>
+
+    <!-- Theme Switcher -->
+    <button class="dock-tool-btn" id="themeToggleBtn" title="Toggle Theme">
+      🌙
+    </button>
+
+    <!-- Petals Toggle -->
+    <button class="dock-tool-btn" id="petalToggleBtn" title="Toggle Falling Petals">
+      🌸
+    </button>
+  </nav>
+
+  <!-- JavaScript Scripts -->
+  <script src="js/petals.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/guestbook.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
